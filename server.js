@@ -12,7 +12,7 @@ import './loadEnv.js'
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors({ origin: "https://master--incandescent-beignet-d724cc.netlify.app" }));
+app.use(cors({ origin: "https://incandescent-beignet-d724cc.netlify.app" }));
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json({limit: '50mb'}));
