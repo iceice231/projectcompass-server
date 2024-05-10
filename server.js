@@ -17,8 +17,8 @@ app.use(cors({ origin: "https://master--incandescent-beignet-d724cc.netlify.app"
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json({limit: '50mb'}));
 app.use('/uploads', express.static('./uploads'))
-app.use('/api/auth', authRoute)
-app.use('/api/project', projectRoute)
+app.use('api/auth', authRoute)
+app.use('api/project', projectRoute)
 
 
 async function start() {
