@@ -11,7 +11,8 @@ import './loadEnv.js'
 
 const app = express()
 
-app.use(cors({origin: true}))
+app.use(cors(
+    {origin: "https://projectcompass-server-production.up.railway.app"}))
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://projectcompass-server-production.up.railway.app"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
