@@ -14,6 +14,12 @@ const PORT = process.env.PORT || 3001
 
 app.use(cors(
     {origin: "https://projectcompass-server-production.up.railway.app"}))
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://master--incandescent-beignet-d724cc.netlify.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json({limit: '50mb'}));
