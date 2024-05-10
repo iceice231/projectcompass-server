@@ -10,6 +10,7 @@ import './loadEnv.js'
 
 
 const app = express()
+const PORT = process.env.PORT || 3001
 
 app.use(cors(
     {origin: "https://projectcompass-server-production.up.railway.app"}))
@@ -19,6 +20,8 @@ app.use(express.json({limit: '50mb'}));
 app.use('/uploads', express.static('./uploads'))
 app.use('/api/auth', authRoute)
 app.use('/api/project', projectRoute)
+
+
 async function start() {
     console.log(process.env.MONGODB_URI)
     try {
@@ -26,7 +29,7 @@ async function start() {
             // 'mongodb+srv://admin:admin@projectcompass.auw8uel.mongodb.net/?retryWrites=true&w=majority'
             process.env.MONGODB_URI
         )
-        app.listen(3001, () => console.log('Сервер успешно запущен'))
+        app.listen(PORT, () => console.log('Сервер успешно запущен'))
     } catch (error) {
         console.log(error)
     }
